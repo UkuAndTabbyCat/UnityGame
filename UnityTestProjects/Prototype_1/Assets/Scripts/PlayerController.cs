@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
 
     private float speed = 20;
     private float turnSpeed = 60;
+    public GameObject camera1;
+    public GameObject camera2;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        camera2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,6 +31,22 @@ public class PlayerController : MonoBehaviour
         //transform.Translate(move * Time.deltaTime * speed);
         transform.Rotate(Vector3.up, x * Time.deltaTime * turnSpeed);
         transform.Translate(Vector3.forward * Time.deltaTime * speed * z);
+
+
+        // °´¼üÇÐ»»Ïà»ú
+        if (Input.GetKeyUp(KeyCode.Y))
+        {
+            if (camera1.activeSelf)
+            {
+                camera2.SetActive(true);
+                camera1.SetActive(false);
+            }
+            else
+            {
+                camera1.SetActive(true);
+                camera2.SetActive(false);
+            }
+        }
 
     }
 }
