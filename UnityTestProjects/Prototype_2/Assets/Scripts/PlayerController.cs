@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private float move;
     private float limit = 20;
 
+    public GameObject newFood;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,13 @@ public class PlayerController : MonoBehaviour
             move = Input.GetAxis("Horizontal");
             transform.Translate(Vector3.right * Time.deltaTime * move * moveSpeed);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(newFood, transform.position, newFood.transform.rotation);
+
+        }
+
 
     }
 }
