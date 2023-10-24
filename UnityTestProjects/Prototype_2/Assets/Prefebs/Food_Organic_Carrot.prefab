@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 4058752599406972003}
   - component: {fileID: 4306146198502355654}
   - component: {fileID: 3817145223631339571}
-  - component: {fileID: 8774270438951801349}
   - component: {fileID: 2906489066285783457}
   - component: {fileID: 7864785319530056634}
-  - component: {fileID: -6893156775554953182}
+  - component: {fileID: 8774270438951801349}
   m_Layer: 0
   m_Name: Food_Organic_Carrot
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8774270438951801349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2717647574284321909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae0e396fccec1d4d877f526d3ef17db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 40
 --- !u!65 &2906489066285783457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -148,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6893156775554953182
+--- !u!114 &8774270438951801349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,6 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2717647574284321909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4db129a2e43e94786b1f16db8d6a44, type: 3}
+  m_Script: {fileID: 11500000, guid: bae0e396fccec1d4d877f526d3ef17db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 40

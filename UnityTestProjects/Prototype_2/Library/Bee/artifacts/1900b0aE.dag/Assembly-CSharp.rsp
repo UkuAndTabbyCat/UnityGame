@@ -368,6 +368,8 @@
 "Assets/Challenge 2/Scripts/MoveForwardX.cs"
 "Assets/Challenge 2/Scripts/PlayerControllerX.cs"
 "Assets/Challenge 2/Scripts/SpawnManagerX.cs"
+"Assets/Scripts/AnimalHunger.cs"
+"Assets/Scripts/CountScore.cs"
 "Assets/Scripts/DetectCollisions.cs"
 "Assets/Scripts/MoveForwardAndDestroy.cs"
 "Assets/Scripts/PlayerController.cs"
