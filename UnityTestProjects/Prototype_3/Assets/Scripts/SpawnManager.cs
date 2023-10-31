@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
     private PlayerController playerControl;
 
-    public GameObject spawn;
-    private Vector3 startLoc = new Vector3(30, 1.5f, 0);
+    public GameObject[] spawn;
+    private int spawnIndex;
+    private Vector3 startLoc;
     // Start is called before the first frame update
     void Start()
     {
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
-        InvokeRepeating("SpawnObstacle", 2, 3);
+        InvokeRepeating("SpawnObstacle", 6, 3);
     }
 
     // Update is called once per frame
@@ -25,7 +27,9 @@ public class SpawnManager : MonoBehaviour
     {
         if (playerControl.isHit == false)
         {
-            Instantiate(spawn, startLoc, spawn.transform.rotation);
+            spawnIndex = Random.Range(0, spawn.Length);
+            startLoc = new Vector3(30, spawn[spawnIndex].transform.position.y, spawn[spawnIndex].transform.position.z);
+            Instantiate(spawn[spawnIndex], startLoc, spawn[spawnIndex].transform.rotation);
         }
 
     }

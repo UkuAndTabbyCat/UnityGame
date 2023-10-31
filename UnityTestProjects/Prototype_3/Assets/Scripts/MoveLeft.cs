@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-
     private PlayerController playerControl;
-    public float speed = 20;
+    public float speed = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class MoveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerControl.isHit == false)
+        if (!playerControl.isHit && playerControl.isStart)
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed);
         }
