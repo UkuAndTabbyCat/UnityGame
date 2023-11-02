@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PowerUp
+  - Enemy
+  - Powerup
+  - BLingBLing
+  - ShootUp
   layers:
   - Default
   - TransparentFX
