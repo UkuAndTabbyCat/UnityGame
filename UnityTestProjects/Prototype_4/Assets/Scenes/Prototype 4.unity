@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootUpTag
       objectReference: {fileID: 0}
+    - target: {fileID: 1742899641471652, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4428908044626120, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -429,7 +433,10 @@ MonoBehaviour:
   enemyPrefeb:
   - {fileID: 7442777005845287221, guid: 83342357f62779346bed090796b760cc, type: 3}
   - {fileID: 3249883229335679194, guid: 296416b52af93fa4aa3f7a73b6c1825f, type: 3}
-  powerUpPrefeb: {fileID: 3435415693696858519, guid: f454c2a9af8729e4d81649f050a619c9, type: 3}
+  powerUpPrefeb:
+  - {fileID: 3435415693696858519, guid: f454c2a9af8729e4d81649f050a619c9, type: 3}
+  - {fileID: 2373557313724084691, guid: ef7b9f0f72629474f973ba0c5043c144, type: 3}
+  - {fileID: 7062033602494298108, guid: ab196e5813bc3484f821192bb20eef11, type: 3}
   waveNum: 0
 --- !u!4 &1125573450
 Transform:
@@ -649,6 +656,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island
       objectReference: {fileID: 0}
+    - target: {fileID: 1301643505922104, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -798,8 +809,8 @@ GameObject:
   - component: {fileID: 2022728180}
   - component: {fileID: 2022728179}
   - component: {fileID: 2022728178}
-  - component: {fileID: 2022728177}
   - component: {fileID: 2022728182}
+  - component: {fileID: 2022728177}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -821,9 +832,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   hasPowerUp: 0
-  hasShootUp: 0
+  hasSmashUp: 0
   strength: 20
   BLingStrength: 30
+  currentPowerUp: 0
+  rocketPrefab: {fileID: 6799734970198072819, guid: 7d494b021c831f540ab4b986aeab3745, type: 3}
 --- !u!135 &2022728178
 SphereCollider:
   m_ObjectHideFlags: 0

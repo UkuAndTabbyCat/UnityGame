@@ -370,7 +370,10 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerPointMove.cs"
+"Assets/Scripts/PowerUp.cs"
+"Assets/Scripts/RocketBehavious.cs"
 "Assets/Scripts/RotateCamera.cs"
+"Assets/Scripts/ShootEnemy.cs"
 "Assets/Scripts/SpawnManager.cs"
 -langversion:9.0
 

@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
 
     public float enemySpeed;
-    private float yBound = -10;
+    //private float shootForce = 20;
+    private float yBound = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +24,22 @@ public class Enemy : MonoBehaviour
         traceDirection = (player.transform.position - transform.position).normalized;
         enemyRb.AddForce(traceDirection * enemySpeed);
 
-        if (transform.position.y < yBound)
+        if (transform.position.y < -yBound || transform.position.y > 2 * yBound)
         {
             Destroy(gameObject);
         }
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+/*        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(collision.gameObject);
+            Vector3 direction = transform.position - collision.transform.position;
+            enemyRb.AddForce(direction * shootForce, ForceMode.Impulse);
+        }*/
+        
+    }
+
 }

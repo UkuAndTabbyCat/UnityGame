@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7285372746293427488}
   m_Layer: 0
   m_Name: BLingBLing
-  m_TagString: BLingBLing
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
