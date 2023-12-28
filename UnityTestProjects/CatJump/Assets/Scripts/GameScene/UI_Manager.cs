@@ -11,6 +11,8 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_lifeNum;
     [SerializeField] List<Image> m_lifeImg;
     [SerializeField] List<AudioClip> m_BGM_Lists;
+
+    private AudioSource m_AudioSource;
     private int score = 0;
     private int life = 5;
     // Start is called before the first frame update
@@ -20,6 +22,8 @@ public class UI_Manager : MonoBehaviour
         {
             m_lifeImg[i].enabled = true;
         }
+        m_AudioSource = GetComponent<AudioSource>();
+        StartCoroutine("LoopGameMusic");
     }
 
     // Update is called once per frame
@@ -57,10 +61,21 @@ public class UI_Manager : MonoBehaviour
 
     private IEnumerator LoopGameMusic()
     {
-        while (true){
+        int i = 0;
+        m_AudioSource.PlayOneShot(m_BGM_Lists[i]);
+        new WaitForSeconds(2);
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            if (m_AudioSource.isPlaying)
+                continue;
+            else
+                i++;
 
-            yield return null;
+            if (i == m_BGM_Lists.Count)
+                i = 0;
+            m_AudioSource.PlayOneShot(m_BGM_Lists[i]);
         }
-        
+
     }
 }
