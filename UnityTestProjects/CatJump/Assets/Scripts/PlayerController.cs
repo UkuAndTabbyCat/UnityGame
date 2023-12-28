@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpVelocity;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float jumpMultiplier;
+    [SerializeField] private float fallMultiplier;
     private float inputHorizontal;
     private float xBound = 4.5f;
 
@@ -18,17 +20,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputHorizontal = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * inputHorizontal * moveSpeed * Time.deltaTime);
+        Move();
         moveLimit();
         if (playerRb.velocity.y > 0)
         {
             transform.GetComponent<CapsuleCollider>().isTrigger = true;
+            playerRb.velocity += Vector3.up * Physics.gravity.y * jumpMultiplier * Time.deltaTime;
         }
         else
         {
             transform.GetComponent<CapsuleCollider>().isTrigger = false;
+            playerRb.velocity += Vector3.up * Physics.gravity.y * fallMultiplier * Time.deltaTime;
         }
+    }
+
+    private void Move()
+    {
+        inputHorizontal = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * inputHorizontal * moveSpeed * Time.deltaTime);
     }
 
     private void moveLimit()
@@ -46,6 +55,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        playerRb.velocity += Vector3.up * jumpVelocity;
     }
 }

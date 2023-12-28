@@ -561,7 +561,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1707853214207580439, guid: 3316a9cacadaa434a800a150f1e75935, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.0489435
+      value: 14.0421505
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707853214207580439, guid: 3316a9cacadaa434a800a150f1e75935, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1707853214207580439, guid: 3316a9cacadaa434a800a150f1e75935, type: 3}
       propertyPath: m_LocalPosition.x
@@ -618,7 +622,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1450242850055386227, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
       propertyPath: jumpForce
-      value: 250
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450242850055386227, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450242850055386227, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
+      propertyPath: jumpVelocity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450242850055386227, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
+      propertyPath: fallMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450242850055386227, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
+      propertyPath: jumpMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742806871022149976, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
+      propertyPath: m_Mass
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5042977729378134258, guid: 2544af7108b5f314cbb0900d3ec974eb, type: 3}
       propertyPath: m_Name
