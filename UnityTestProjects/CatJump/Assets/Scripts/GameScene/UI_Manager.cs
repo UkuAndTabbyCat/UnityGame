@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI m_ScoreText;
-    [SerializeField] TextMeshProUGUI m_lifeNum;
+    [SerializeField] TextMeshProUGUI m_GameOverScoreText;
     [SerializeField] List<Image> m_lifeImg;
     [SerializeField] List<AudioClip> m_BGM_Lists;
 
@@ -57,6 +57,11 @@ public class UI_Manager : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void UpdateGameOverScore()
+    {
+        m_GameOverScoreText.SetText($"Score : {score}");
     }
 
     private IEnumerator LoopGameMusic()
