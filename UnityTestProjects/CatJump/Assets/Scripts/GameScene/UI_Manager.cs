@@ -13,10 +13,14 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_GameOverScoreText;
     [SerializeField] List<Image> m_lifeImg;
     [SerializeField] List<AudioClip> m_BGM_Lists;
+    [SerializeField] GameObject m_CountDownCanvas;
+    [SerializeField] List<GameObject> m_CountDownNum;
 
     private AudioSource m_AudioSource;
     private int m_PlayerLife;
     private int score;
+
+    private bool startTag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +32,19 @@ public class UI_Manager : MonoBehaviour
         }
         m_AudioSource = GetComponent<AudioSource>();
         StartCoroutine("LoopGameMusic");
+        StartCoroutine("CountDown");
+        Time.timeScale = 0;
+        // Time.timeScale will cause WaitForSconds stop!!!
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (startTag)
+        {
+            Time.timeScale = 1;
+            startTag = false;
+        }
         UpdateScore();
     }
 
@@ -97,7 +109,18 @@ public class UI_Manager : MonoBehaviour
                 i = 0;
             m_AudioSource.PlayOneShot(m_BGM_Lists[i]);
         }
-
     }
 
+    private IEnumerator CountDown()
+    {
+        for (int i = 0; i < m_CountDownNum.Count; i++)
+        {
+            m_CountDownNum[i].SetActive(true);
+            yield return new WaitForSecondsRealtime(1);
+            m_CountDownNum[i].SetActive(false);
+        }
+        m_CountDownCanvas.SetActive(false);
+        startTag = true;
+
+    }
 }
