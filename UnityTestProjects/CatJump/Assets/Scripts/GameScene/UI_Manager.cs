@@ -7,18 +7,22 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
+    [SerializeField] PlayerData playerData;
+
     [SerializeField] TextMeshProUGUI m_ScoreText;
     [SerializeField] TextMeshProUGUI m_GameOverScoreText;
     [SerializeField] List<Image> m_lifeImg;
     [SerializeField] List<AudioClip> m_BGM_Lists;
 
     private AudioSource m_AudioSource;
-    private int score = 0;
-    private int life = 5;
+    private int m_PlayerLife;
+    private int score;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < m_lifeImg.Count; i++)
+        m_PlayerLife = playerData.Instance.Life;
+        for (int i = 0; i < playerData.Instance.Life; i++)
         {
             m_lifeImg[i].enabled = true;
         }
@@ -64,6 +68,18 @@ public class UI_Manager : MonoBehaviour
         m_GameOverScoreText.SetText($"Score : {score}");
     }
 
+    public void HurtLife(int num)
+    {
+        if (num >= m_PlayerLife)
+        {
+            num = 0;
+        }
+        for (int i = m_PlayerLife - num; i < m_PlayerLife; i++)
+        {
+            m_lifeImg[i].enabled = false;
+        }
+    }
+
     private IEnumerator LoopGameMusic()
     {
         int i = 0;
@@ -83,4 +99,5 @@ public class UI_Manager : MonoBehaviour
         }
 
     }
+
 }
