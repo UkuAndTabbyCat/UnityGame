@@ -14,6 +14,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] List<Image> m_lifeImg;
     [SerializeField] List<AudioClip> m_BGM_Lists;
     [SerializeField] GameObject m_CountDownCanvas;
+    [SerializeField] GameObject m_StopPanel;
     [SerializeField] List<GameObject> m_CountDownNum;
 
     private AudioSource m_AudioSource;
@@ -50,7 +51,7 @@ public class UI_Manager : MonoBehaviour
 
     void UpdateScore()
     {
-        float pos_y = Camera.main.transform.position.y * 100f;
+        float pos_y = Camera.main.transform.position.y * 10f;
         score = Mathf.RoundToInt(pos_y);
         m_ScoreText.SetText($"Score : {score}");
     }
@@ -121,6 +122,6 @@ public class UI_Manager : MonoBehaviour
         }
         m_CountDownCanvas.SetActive(false);
         startTag = true;
-
+        m_StopPanel.SetActive(true);
     }
 }

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         inputHorizontal = Input.GetAxis("Horizontal");
         if (inputHorizontal < 0)
             transform.rotation = Quaternion.Euler(0, 180, 0);
-        else
+        else if (inputHorizontal > 0)
             transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.Translate(Vector3.right * Mathf.Abs(inputHorizontal) * moveSpeed * Time.deltaTime);
     }
