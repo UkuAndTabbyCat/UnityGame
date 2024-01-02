@@ -9,6 +9,11 @@ public class PlayerData : MonoBehaviour
 
     private void Awake()
     {
+        if (!StartPlayerData.Instance)
+        {
+            Life = 0;
+            return;
+        }
         Life = StartPlayerData.Instance.PlayerLife;
     }
 
