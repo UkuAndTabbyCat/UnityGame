@@ -94,8 +94,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9cb5229f6ce4b7b4fb5069f624d16913, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 889d0792604779c40b08a7c6722b5a2a, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1609,7 +1609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9859e95da09d3034293f9cc0127f4f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 1943287307}
   m_ScoreText: {fileID: 1748418803}
   m_GameOverScoreText: {fileID: 1514844811}
   m_lifeImg:
@@ -1623,11 +1622,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1f5e75f10eecaee4cacf6efbc3c44645, type: 3}
   - {fileID: 8300000, guid: 5fd6bb7406b425c499eec462d417b057, type: 3}
   m_CountDownCanvas: {fileID: 1994305848}
+  m_StatusPanel: {fileID: 1928333867}
   m_StopPanel: {fileID: 1848277931}
+  m_GameOverPanel: {fileID: 1639142328}
   m_CountDownNum:
   - {fileID: 1242822051}
   - {fileID: 674002155}
   - {fileID: 895000079}
+  isGameOver: 0
 --- !u!82 &689495226
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2059,9 +2061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a623c5dc60cb996498b960bbff287a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StatusPanel: {fileID: 1928333867}
-  m_StopPanel: {fileID: 1848277931}
-  m_GameOverPanel: {fileID: 1639142328}
   m_UI_Manager: {fileID: 689495225}
 --- !u!82 &781429836
 AudioSource:
@@ -5246,6 +5245,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalStep: {fileID: 1149088115218720364, guid: 3316a9cacadaa434a800a150f1e75935, type: 3}
+  moveStep: {fileID: 9051405638601417458, guid: fd74f0713340b4347b1e59789e4995f7, type: 3}
+  onlyOnceStep: {fileID: 568023843927700372, guid: 4e69daa3ea91672489a5bded71af599a, type: 3}
+  hurtStep: {fileID: 706705701359868347, guid: e59ee5c8435d3bf4cb38ef1db96c8413, type: 3}
 --- !u!4 &1943287306
 Transform:
   m_ObjectHideFlags: 0

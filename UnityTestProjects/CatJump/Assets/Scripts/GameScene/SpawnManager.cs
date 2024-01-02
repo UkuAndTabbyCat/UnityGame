@@ -9,9 +9,12 @@ public class SpawnManager : MonoBehaviour
      */
 
     [SerializeField] GameObject normalStep;
+    [SerializeField] GameObject moveStep;
+    [SerializeField] GameObject onlyOnceStep;
+    [SerializeField] GameObject hurtStep;
     private float cameraHeight;
     private float startHeight = 0;
-    private float xBound = 5;
+    private float xBound = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +39,20 @@ public class SpawnManager : MonoBehaviour
         cameraHeight = Camera.main.transform.position.y;
         if (startHeight - cameraHeight < 8)
         {
-            for (int i = 0; i < 5; i++)
+            int intervalNum = Random.Range(3, 5);
+            for (int i = 0; i < intervalNum; i++)
             {
                 startHeight += Random.Range(4f, 8f);
                 GenerateRandomStep(normalStep, startHeight);
             }
+            startHeight += Random.Range(4f, 8f);
+            GenerateRandomStep(moveStep, startHeight);
+            startHeight += Random.Range(4f, 8f);
+            GenerateRandomStep(onlyOnceStep, startHeight);
+            startHeight += Random.Range(4f, 8f);
+            GenerateRandomStep(hurtStep, startHeight);
+            startHeight += 0.7f;
+            GenerateRandomStep(onlyOnceStep, startHeight);
         }
     }
 
