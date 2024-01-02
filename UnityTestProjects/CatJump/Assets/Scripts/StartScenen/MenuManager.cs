@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+# if UNITY_EDITOR
+using UnityEditor;
+# endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject m_SettingPanel;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        m_SettingPanel.SetActive(false);
     }
 
     public void LoadGameScene()
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void ExitApplication()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+# endif
+    }
+
 }

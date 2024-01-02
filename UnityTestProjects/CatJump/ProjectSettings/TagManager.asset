@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Background
-  - life
+  - Level
   layers:
   - Default
   - TransparentFX

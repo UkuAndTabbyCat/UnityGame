@@ -26,8 +26,8 @@ public class UI_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_PlayerLife = playerData.Instance.Life;
-        for (int i = 0; i < playerData.Instance.Life; i++)
+        m_PlayerLife = playerData.Life;
+        for (int i = 0; i < playerData.Life; i++)
         {
             m_lifeImg[i].enabled = true;
         }
