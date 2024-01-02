@@ -32,7 +32,6 @@ public class UI_Manager : MonoBehaviour
             m_lifeImg[i].enabled = true;
         }
         m_AudioSource = GetComponent<AudioSource>();
-        StartCoroutine("LoopGameMusic");
         StartCoroutine("CountDown");
         Time.timeScale = 0;
         // Time.timeScale will cause WaitForSconds stop!!!
@@ -93,6 +92,20 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    private IEnumerator CountDown()
+    {
+        for (int i = 0; i < m_CountDownNum.Count; i++)
+        {
+            m_CountDownNum[i].SetActive(true);
+            yield return new WaitForSecondsRealtime(1);
+            m_CountDownNum[i].SetActive(false);
+        }
+        m_CountDownCanvas.SetActive(false);
+        startTag = true;
+        m_StopPanel.SetActive(true);
+        StartCoroutine("LoopGameMusic");
+    }
+
     private IEnumerator LoopGameMusic()
     {
         int i = 0;
@@ -112,16 +125,4 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    private IEnumerator CountDown()
-    {
-        for (int i = 0; i < m_CountDownNum.Count; i++)
-        {
-            m_CountDownNum[i].SetActive(true);
-            yield return new WaitForSecondsRealtime(1);
-            m_CountDownNum[i].SetActive(false);
-        }
-        m_CountDownCanvas.SetActive(false);
-        startTag = true;
-        m_StopPanel.SetActive(true);
-    }
 }
