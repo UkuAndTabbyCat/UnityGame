@@ -126,7 +126,7 @@ public class UI_Manager : MonoBehaviour
     private IEnumerator LoopGameMusic()
     {
         int i = 0;
-        m_AudioSource.PlayOneShot(m_BGM_Lists[i]);
+        m_AudioSource.PlayOneShot(m_BGM_Lists[i], 1.5f);
         new WaitForSeconds(2);
         while (true)
         {
@@ -138,7 +138,7 @@ public class UI_Manager : MonoBehaviour
 
             if (i == m_BGM_Lists.Count)
                 i = 0;
-            m_AudioSource.PlayOneShot(m_BGM_Lists[i]);
+            m_AudioSource.PlayOneShot(m_BGM_Lists[i], 1.5f);
         }
     }
 
