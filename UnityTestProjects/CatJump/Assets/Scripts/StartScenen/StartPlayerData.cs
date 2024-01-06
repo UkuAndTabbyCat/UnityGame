@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,10 +24,10 @@ public class StartPlayerData : MonoBehaviour
 
     public int PlayerLife { get; private set; }
 
+    private bool isMenu;
+
     void Awake()
     {
-        m_LevelToggle = new Toggle[3];
-        Level = GameLevel.Medium;
         if (Instance == null)
         {
             Instance = this;
@@ -36,8 +37,12 @@ public class StartPlayerData : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        InitializeLevel();
 
+        m_LevelToggle = new Toggle[3];
+
+        isMenu = InitializeLevel();
+        Level = GameLevel.Medium;
+        SelectLevel(true, m_LevelToggle[1]);
     }
 
     private void Start()
@@ -50,18 +55,22 @@ public class StartPlayerData : MonoBehaviour
     private void LoadSelectLevel(Scene scene, LoadSceneMode mode)
     {
         // todo tuning!!!
-        InitializeLevel();
+        isMenu = InitializeLevel();
+        if (!isMenu)
+        {
+            return;
+        }
         UpdateSelectLevel();
         SetLevel(Level);
         SetPlayerLife(Level);
     }
 
-    private void InitializeLevel()
+    private bool InitializeLevel()
     {
         GameObject[] m_obj_levels = GameObject.FindGameObjectsWithTag("Level");
         if (m_obj_levels.Length != 3)
         {
-            return;
+            return false;
         }
         for (int i = 0; i < m_obj_levels.Length; i++)
         {
@@ -78,6 +87,23 @@ public class StartPlayerData : MonoBehaviour
             {
                 m_LevelToggle[2] = m_obj_levels[i].GetComponent<Toggle>();
             }
+        }
+        return true;
+    }
+
+    private void SetLevel(GameLevel Level)
+    {
+        switch (Level)
+        {
+            case GameLevel.Easy:
+                m_LevelToggle[0].isOn = true;
+                break;
+            case GameLevel.Medium:
+                m_LevelToggle[1].isOn = true;
+                break;
+            case GameLevel.Hard:
+                m_LevelToggle[2].isOn = true;
+                break;
         }
     }
 
@@ -99,22 +125,6 @@ public class StartPlayerData : MonoBehaviour
         }
         Level = toggle.GetComponent<LevelSelect>().MyLevel;
         SetPlayerLife(Level);
-    }
-
-    private void SetLevel(GameLevel Level)
-    {
-        switch (Level)
-        {
-            case GameLevel.Easy:
-                m_LevelToggle[0].isOn = true;
-                break;
-            case GameLevel.Medium:
-                m_LevelToggle[1].isOn = true;
-                break;
-            case GameLevel.Hard:
-                m_LevelToggle[2].isOn = true;
-                break;
-        }
     }
 
     private void SetPlayerLife(GameLevel Level)

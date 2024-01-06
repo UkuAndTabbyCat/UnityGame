@@ -8,7 +8,7 @@ public class DestroyStep : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Camera.main.transform.position.y - transform.position.y > 20)
+        if (Camera.main.transform.position.y - transform.position.y > 22)
         {
             Destroy(gameObject);
         }

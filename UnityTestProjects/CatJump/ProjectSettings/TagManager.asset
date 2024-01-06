@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Background
   - Level
+  - life
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Game
   - Water
   - UI
   - Upper
